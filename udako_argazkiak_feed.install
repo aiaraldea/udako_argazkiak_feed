@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implementation of hook_install().
+ */
+function udako_argazkiak_feed_install() {
+  drupal_install_schema('udako_argazkiak_feed');
+}
+
+/**
+ * Implementation of hook_uninstall();
+ */
+function udako_argazkiak_feed_uninstall() {
+  drupal_uninstall_schema('udako_argazkiak_feed');
+}
+/**
+ * Implementation of hook_schema().
+ */
+function udako_argazkiak_feed_schema() {
+  // Install data tables.
+  include_once('udako_argazkiak_feed.data_default.inc');
+  $tables = udako_argazkiak_feed_data_default();
+  $schema = array();
+  foreach ($tables as $name => $table) {
+    $schema[$name] = $table->table_schema;
+  }
+  return $schema;
+}

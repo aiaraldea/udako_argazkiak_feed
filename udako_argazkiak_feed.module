@@ -1,0 +1,3 @@
+<?php
+
+include_once('udako_argazkiak_feed.features.inc');
